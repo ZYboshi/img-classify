@@ -1,0 +1,11 @@
+# 排除整个data目录
+data/
+datasets/
+# 排除所有的日志文件
+checkpoints/
+# JetBrains IDE 配置
+.idea/
+
+# Python 字节码缓存
+__pycache__/
+*.py[cod]
