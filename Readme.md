@@ -32,7 +32,7 @@ Model_Type = "both"  # 可选："pytorch", "decision_tree", "LogisticRegression"
 ## 模型训练
 >模型训练以及预测都写在同一个函数中，通过调用`main.py`中train_xxx函数即可进行模型训练以及预测
 
-运行`main.py`进行训练+预测
+1. 运行`main.py`进行训练+预测
 | 模型 | 实现文件 | 训练函数 | 备注 |
 |------|----------|----------|------|
 | ​**卷积神经网络(CNN)​**​ | `network.py` | `train_pytorch_model(lr=0.01, optimizer_type='adam')` | 支持多种优化器 |
@@ -41,5 +41,14 @@ Model_Type = "both"  # 可选："pytorch", "decision_tree", "LogisticRegression"
 | ​**逻辑回归**​ | `logisticregress.py` | `train_LogisticRegression()` | 多分类逻辑回归 |
 | ​**贝叶斯分类器**​ | `bayesian.py` | `train_BayesianClassifier()` | 高斯朴素贝叶斯 |
 
+2. 卷积网络模型权重参数
+在`main.py`中 卷积网络训练过程中保存了卷积网络模型权重参数，用于断点续训等操作  
+代码为:
+```python
+        if (epoch+1) % 5 == 0:
+            print(f"Epoch {epoch}: Train Loss = {loss.item():.4f}")
+            torch.save(model.state_dict(), f"./checkpoints/fc_model_{epoch}.pth")
+```
+保存文件夹:checkpoints
 ## 项目地址
 GitHub仓库：https://github.com/ZYboshi/img-classify.git
