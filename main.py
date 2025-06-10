@@ -170,9 +170,7 @@ def train_fully_connected():
             loss.backward()
             optimizer.step()
 
-        if (epoch+1) % 5 == 0:
-            print(f"Epoch {epoch}: Train Loss = {loss.item():.4f}")
-            torch.save(model.state_dict(), f"./checkpoints/fc_model_{epoch}.pth")
+
 
     train_end = time.time()
     train_duration = train_end - train_start
