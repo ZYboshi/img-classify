@@ -20,14 +20,14 @@ def get_dataloader(datasets_name):
             root='./data',  # 数据保存的路径
             train=True,  # 表示这是训练集
             transform=transform,  # 应用的转换
-            download=False  # 如果数据不存在，则从互联网下载
+            download=True  # 如果数据不存在，则从互联网下载
         )
 
         test_dataset = datasets.MNIST(
             root='./data',
             train=False,  # 表示这是测试集
             transform=transform,
-            download=False
+            download=True
         )
 
         train_dataloader=DataLoader(train_dataset,batch_size=BatchSize,shuffle=True)
